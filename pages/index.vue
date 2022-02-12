@@ -1,9 +1,8 @@
 <template>
-  <App />
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'UntitledUI'
 }
 </script>

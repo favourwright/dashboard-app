@@ -1,9 +1,6 @@
 <template>
-  <h1>Hey you</h1>
+  <div id="app">
+    <Nav />
+    <Nuxt />
+  </div>
 </template>
-
-<script>
-export default {
-
-}
-</script>

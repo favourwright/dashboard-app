@@ -17,7 +17,9 @@
     "webpack": "^4.46.0"
   },
   "devDependencies": {
+    "@iconify-json/feather": "^1.0.1",
     "sass": "^1.49.7",
-    "sass-loader": "^10.2.1"
+    "sass-loader": "^10.2.1",
+    "unplugin-icons": "^0.13.1"
   }
 }
