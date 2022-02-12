@@ -23,8 +23,10 @@
 // variables
 $primary:#7F56D9;
 $outlines: #eaecf0;
-$grey_light: #f9fafb;
+$grey_light_1: #f9fafb;
+$grey_light_2: #d0d5dd;
 $black: #344054;
+$grey: #667085;
 
 // mixins
 @mixin pad_lr {
@@ -48,4 +50,16 @@ $black: #344054;
 	-moz-user-select: auto;
 	-ms-user-select: auto;
 	user-select: auto;
+}
+
+// where j=justify, a=align
+@mixin flex($justify:center, $align:center, $dir:inherit) {
+  display:flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $dir;
+}
+
+@mixin box-shadow{
+  box-shadow:0 1px 2px 0 rgba(16, 24, 40, 0.05);
 }

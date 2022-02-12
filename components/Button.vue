@@ -14,16 +14,19 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/sass/resources';
 button{
+  display:flex;
+  align-items:center;
   padding:10px 16px;
   font-weight:500;
-  font-size:14;
+  font-size:14px;
   border-radius:8px;
   background:unset;
   transition:.3s;
-  &:hover{background: $grey_light;}
+  @include box-shadow;
+  &:hover{background: $grey_light_1;}
 }
 button.primary{background:$primary;}
 button.border{
-  border:1px solid #D0D5DD;
+  border:1px solid $grey_light_2;
 }
 </style>

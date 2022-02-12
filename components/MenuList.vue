@@ -28,8 +28,8 @@ ul {
     cursor:pointer;
     transition:.3s;
 
-    &:hover{background: $grey_light;}
-    &.active{background: $grey_light;}
+    &:hover{background: $grey_light_1;}
+    &.active{background: $grey_light_1;}
   }
 }
 </style>
