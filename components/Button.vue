@@ -25,7 +25,10 @@ button{
   @include box-shadow;
   &:hover{background: $grey_light_1;}
 }
-button.primary{background:$primary;}
+button.primary{
+  background:$primary;
+  color:#fff;
+}
 button.border{
   border:1px solid $grey_light_2;
 }
