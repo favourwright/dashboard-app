@@ -23,6 +23,7 @@ button{
   background:unset;
   transition:.3s;
   @include box-shadow;
+  @include unselectable;
   &:hover{background: $grey_light_1;}
 }
 button.primary{

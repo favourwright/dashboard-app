@@ -15,6 +15,13 @@
 @font-face {
   font-family: 'Inter';
   font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('~assets/fonts/Inter-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
   font-weight: 700;
   font-display: swap;
   src: url('~assets/fonts/Inter-Bold.ttf') format('truetype');
@@ -26,7 +33,13 @@ $outlines: #eaecf0;
 $grey_light_1: #f9fafb;
 $grey_light_2: #d0d5dd;
 $black: #344054;
+$xblack: #101828;
 $grey: #667085;
+$grey_2:#98a2b3;
+$green:#12b76a;
+$green_dark:#027A48;
+$red:#F04438;
+$red_dark:#B42318;
 
 // mixins
 @mixin pad_lr {
@@ -61,5 +74,5 @@ $grey: #667085;
 }
 
 @mixin box-shadow{
-  box-shadow:0 1px 2px 0 rgba(16, 24, 40, 0.05);
+  box-shadow:0 1px 2px 0 rgba(16, 24, 40, 0.06);
 }

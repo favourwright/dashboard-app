@@ -3,7 +3,7 @@
     <div class="primary-nav">
       <div>
         <Logo />
-        <MenuList
+        <menu-list
           :items="[
             { name: 'home' },
             { name: 'dashboard', isactive: true },
@@ -16,7 +16,7 @@
       </div>
       <div>
         <Button name="Upgrade now">
-          <template v-slot:icon><icon-zap class="btn-space" /></template>
+          <template v-slot:icon><icon-zap class="icon-space" /></template>
         </Button>
         <div class="actions">
           <ul>
@@ -24,11 +24,11 @@
             <li><icon-bell class="grey" /></li>
           </ul>
         </div>
-        <Dropdown />
+        <drop-down />
       </div>
     </div>
     <div class="secondary-nav">
-      <MenuList
+      <menu-list
         :items="[
           { name: 'overview', isactive: true  },
           { name: 'notifications'},
