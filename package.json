@@ -22,5 +22,8 @@
     "sass": "^1.49.7",
     "sass-loader": "^10.2.1",
     "unplugin-icons": "^0.13.1"
+  },
+  "engines": {
+    "node": "14.15.0"
   }
 }
