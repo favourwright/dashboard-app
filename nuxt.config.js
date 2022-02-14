@@ -15,6 +15,10 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+  ssr: false,
+  // Target: https://go.nuxtjs.dev/config-target
+  target: "static",
   server: {
     port: 8000, // default: 3000
     // host: '0.0.0.0', // default: localhost,
