@@ -40,7 +40,7 @@ export default {
     return {
       series: [{
         name: 'series',
-        data: [0, 50, 50, 30, 42, 109, 100]
+        data: [1, 50, 26, 101, 100]
       }],
       chartOptions: {
         chart: {
@@ -57,9 +57,16 @@ export default {
           curve: 'smooth',
           width: 2,
         },
+        // colors: this.summaryItem.difference > 0 ? ['#12B76A'] : ['#F04438'],
+        colors: ['#12B76A'],
+        fill: {
+          gradient: {
+              shadeIntensity: 0.9,
+          },
+        },
         xaxis: {
           type: 'datetime',
-          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T03:40:00.000Z"]
         },
         tooltip: {
           x: {
@@ -85,7 +92,7 @@ export default {
     display:flex;
     justify-content:space-between;
     &:not(:last-child){margin-bottom:24px;}
-
+    
     > main{
       h1{
         margin-bottom:16px;

@@ -61,7 +61,7 @@ export default {
   }
   >.metric{
     display:grid;
-    grid-template: 1fr / repeat(3,1fr);
+    grid-template: auto / minmax(min-content, 1fr) minmax(min-content, 1fr) minmax(min-content, 1fr);
     gap:24px;
     align-self:center;
     > div{
