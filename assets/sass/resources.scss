@@ -29,6 +29,7 @@
 
 // variables
 $primary:#7F56D9;
+$primary_faded: #F9F5FF;
 $outlines: #eaecf0;
 $grey_light_1: #f9fafb;
 $grey_light_2: #d0d5dd;
@@ -40,6 +41,12 @@ $green:#12b76a;
 $green_dark:#027A48;
 $red:#F04438;
 $red_dark:#B42318;
+
+.bg_primary_faded{
+  background:$primary_faded;
+  color:$primary;
+  svg *{stroke: $primary}
+}
 
 // mixins
 @mixin pad_lr {

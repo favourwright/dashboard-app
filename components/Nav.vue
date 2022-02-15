@@ -4,19 +4,12 @@
       <div>
         <Logo />
         <menu-list
-          :items="[
-            { name: 'home' },
-            { name: 'dashboard', isactive: true },
-            { name: 'projects' },
-            { name: 'tasks' },
-            { name: 'reporting' },
-            { name: 'users' },
-          ]"
+          :items="primary_menu_items"
         />
       </div>
       <div>
         <Button name="Upgrade now">
-          <template #icon><icon-zap class="icon-space ico" /></template>
+          <template #icon><icon-zap class="ico" /></template>
         </Button>
         <div class="actions">
           <ul>
@@ -24,20 +17,11 @@
             <li><icon-bell class="grey ico" /></li>
           </ul>
         </div>
-        <drop-down />
+        <Dropdown />
       </div>
     </div>
     <div class="secondary-nav">
-      <menu-list
-        :items="[
-          { name: 'overview', isactive: true  },
-          { name: 'notifications'},
-          { name: 'analytics' },
-          { name: 'saved reports' },
-          { name: 'trade history' },
-          { name: 'user reports' },
-        ]"
-      />
+      <menu-list :items="secondary_menu_items" />
       <Search />
     </div>
   </nav>
@@ -49,6 +33,26 @@ import IconSettings from "~icons/feather/settings";
 import IconBell from "~icons/feather/bell";
 export default {
   components: { IconZap, IconSettings, IconBell },
+  data(){
+    return {
+      primary_menu_items:[
+        { name: 'home' },
+        { name: 'dashboard', isactive: true },
+        { name: 'projects' },
+        { name: 'tasks' },
+        { name: 'reporting' },
+        { name: 'users' },
+      ],
+      secondary_menu_items:[
+        { name: 'overview', isactive: true  },
+        { name: 'notifications'},
+        { name: 'analytics' },
+        { name: 'saved reports' },
+        { name: 'trade history' },
+        { name: 'user reports' },
+      ]
+    }
+  }
 }
 </script>
 

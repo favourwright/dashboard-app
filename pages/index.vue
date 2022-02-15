@@ -7,19 +7,25 @@
       </div>
       <div class="actions">
         <Button name="Import">
-          <template v-slot:icon><icon-upload-cloud class="icon-space ico" /></template>
+          <template v-slot:icon><icon-upload-cloud class="ico" /></template>
         </Button>
-        <Button class="primary" name="Add">
-          <template v-slot:icon><icon-plus class="icon-space white ico" /></template>
+        <Button css="primary" name="Add">
+          <template v-slot:icon><icon-plus class="white ico" /></template>
         </Button>
       </div>
     </section>
     <section class="metric">
-      <metric-item heading='Total customers' number=2,420 :change=40 />
-      <metric-item heading='Members' number=1,210 :change=-10 />
-      <metric-item heading='Active now' number=316 :change=20 />
+      <metric-item
+        v-for="(each,i) in metric_data"
+        :key="i"
+        :heading=each.heading
+        :number=each.number
+        :change=each.change
+        :plot=each.plot
+      />
     </section>
     <section>
+      <Filters />
       <Table />
     </section>
   </div>
@@ -33,6 +39,57 @@ export default {
   components:{
     IconUploadCloud,
     IconPlus,
+  },
+  data(){
+    return {
+      metric_data:[
+        {
+          heading:'Total customers',
+          number:'2,420',
+          change:40,
+          plot:{
+            points:[1, 50, 26, 101, 100],
+            timeline:[
+              "2018-09-19T00:00:00.000Z",
+              "2018-09-19T01:30:00.000Z",
+              "2018-09-19T02:30:00.000Z",
+              "2018-09-19T03:30:00.000Z",
+              "2018-09-19T03:40:00.000Z"
+            ]
+          },
+        },
+        {
+          heading:'Members',
+          number:'1,210',
+          change:-10,
+          plot:{
+            points:[100, 26, 50, 2, 1],
+            timeline:[
+              "2018-09-19T00:00:00.000Z",
+              "2018-09-19T01:30:00.000Z",
+              "2018-09-19T02:30:00.000Z",
+              "2018-09-19T03:30:00.000Z",
+              "2018-09-19T03:40:00.000Z"
+            ]
+          },
+        },
+        {
+          heading:'Active now',
+          number:'316',
+          change:20,
+          plot:{
+            points:[1, 50, 26, 101, 100],
+            timeline:[
+              "2018-09-19T00:00:00.000Z",
+              "2018-09-19T01:30:00.000Z",
+              "2018-09-19T02:30:00.000Z",
+              "2018-09-19T03:30:00.000Z",
+              "2018-09-19T03:40:00.000Z"
+            ]
+          },
+        },
+      ]
+    }
   }
 }
 </script>
@@ -61,9 +118,8 @@ export default {
   }
   >.metric{
     display:grid;
-    grid-template: auto / minmax(min-content, 1fr) minmax(min-content, 1fr) minmax(min-content, 1fr);
+    grid-template: 1fr / repeat(3,1fr);
     gap:24px;
-    align-self:center;
     > div{
       max-width:390px;
     }

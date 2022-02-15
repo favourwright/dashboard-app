@@ -31,6 +31,7 @@ export default {
     heading: String,
     number: String,
     change: Number,
+    plot: Object
   },
   components:{
     IconArrowUp,
@@ -40,11 +41,11 @@ export default {
     return {
       series: [{
         name: 'series',
-        data: [1, 50, 26, 101, 100]
+        data: this.plot.points
       }],
       chartOptions: {
         chart: {
-          height: 50,
+          height: 100,
           type: 'area',
           sparkline: {
             enabled: true,
@@ -57,8 +58,7 @@ export default {
           curve: 'smooth',
           width: 2,
         },
-        // colors: this.summaryItem.difference > 0 ? ['#12B76A'] : ['#F04438'],
-        colors: ['#12B76A'],
+        colors: this.change > 0 ? ['#12B76A'] : ['#F04438'],
         fill: {
           gradient: {
               shadeIntensity: 0.9,
@@ -66,7 +66,7 @@ export default {
         },
         xaxis: {
           type: 'datetime',
-          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T03:40:00.000Z"]
+          categories: this.plot.timeline
         },
         tooltip: {
           x: {
@@ -92,8 +92,9 @@ export default {
     display:flex;
     justify-content:space-between;
     &:not(:last-child){margin-bottom:24px;}
-    
+
     > main{
+      margin-right:10px;
       h1{
         margin-bottom:16px;
       }
@@ -105,7 +106,12 @@ export default {
         > div:first-child{ @include flex; }
         .green{color:$green_dark;}
         .red{color:$red_dark;}
-        > div:last-child{color:$grey}
+        > div:last-child{
+          color:$grey;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
       }
     }
   }
