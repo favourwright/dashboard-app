@@ -8,7 +8,7 @@
       <template #icon><icon-x class="ico" /></template>
     </Button>
     <Button name="More filters">
-      <template #icon><img class="logo" src="/filter-lines.svg" alt="logo"></template>
+      <template #icon><img src="/filter-lines.svg"></template>
     </Button>
   </main>
   <Search />
@@ -30,6 +30,7 @@ export default {
   display:flex;
   flex-direction:row;
   justify-content:space-between;
+  margin-bottom:24px;
   main{
     display:flex;
     button:not(:last-child){

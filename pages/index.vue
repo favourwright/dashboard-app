@@ -27,6 +27,7 @@
     <section>
       <Filters />
       <Table />
+      <Pagination />
     </section>
   </div>
 </template>
