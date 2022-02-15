@@ -1,6 +1,6 @@
 <template>
   <div class="search">
-    <div class="icon"><icon-search class="grey" /></div>
+    <div class="icon"><icon-search class="grey ico" /></div>
     <input :placeholder="name?name:'Search'" type="search" name="" id="">
   </div>
 </template>

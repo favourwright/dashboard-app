@@ -1,6 +1,6 @@
 <template>
  <div class="options">
-   <icon-more-vertical class="grey_2" />
+   <icon-more-vertical class="grey_2 ico" />
  </div>
 </template>
 

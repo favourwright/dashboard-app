@@ -9,31 +9,66 @@
         <h1 v-text="number"></h1>
         <div class="change_n_text">
           <div>
-            <icon-arrow-up v-if="change>0" stroke-width=2 class="green" />
-            <icon-arrow-down v-else stroke-width=2 class="red" />
+            <icon-arrow-up v-if="change>0" stroke-width=2 class="green ico" />
+            <icon-arrow-down v-else stroke-width=2 class="red ico" />
             <span :class="change>0?'green':'red'" v-text="Math.abs(change)+'%'"></span>
           </div>
           <div>vs last month</div>
         </div>
       </main>
       <div class="chart">
-      <!-- <apex-charts /> -->
+        <apexchart type="area" width="128" height="auto" stroke="1" :options="chartOptions" :series="series" />
       </div>
     </section>
   </div>
 </template>
 
 <script>
-// import ApexCharts from 'apexcharts'
 import IconArrowUp from "~icons/feather/arrow-up";
 import IconArrowDown from "~icons/feather/arrow-down";
 export default {
-  props:['heading','number','change'],
+  props: {
+    heading: String,
+    number: String,
+    change: Number,
+  },
   components:{
-    // ApexCharts,
     IconArrowUp,
     IconArrowDown,
   },
+  data(){
+    return {
+      series: [{
+        name: 'series',
+        data: [0, 50, 50, 30, 42, 109, 100]
+      }],
+      chartOptions: {
+        chart: {
+          height: 50,
+          type: 'area',
+          sparkline: {
+            enabled: true,
+          },
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'smooth',
+          width: 2,
+        },
+        xaxis: {
+          type: 'datetime',
+          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+        },
+        tooltip: {
+          x: {
+            format: 'dd/MM/yy HH:mm'
+          },
+        },
+      },
+    }
+  }
 }
 </script>
 

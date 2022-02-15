@@ -16,12 +16,12 @@
       </div>
       <div>
         <Button name="Upgrade now">
-          <template v-slot:icon><icon-zap class="icon-space" /></template>
+          <template #icon><icon-zap class="icon-space ico" /></template>
         </Button>
         <div class="actions">
           <ul>
-            <li><icon-settings class="grey" /></li>
-            <li><icon-bell class="grey" /></li>
+            <li><icon-settings class="grey ico" /></li>
+            <li><icon-bell class="grey ico" /></li>
           </ul>
         </div>
         <drop-down />

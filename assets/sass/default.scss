@@ -15,7 +15,7 @@
     @include pad_lr;
   }
 }
-svg{
+svg.ico{
   width:20px;
   height:20px;
   &.grey{ *{stroke: $grey} }

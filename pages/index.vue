@@ -7,19 +7,21 @@
       </div>
       <div class="actions">
         <Button name="Import">
-          <template v-slot:icon><icon-upload-cloud class="icon-space" /></template>
+          <template v-slot:icon><icon-upload-cloud class="icon-space ico" /></template>
         </Button>
         <Button class="primary" name="Add">
-          <template v-slot:icon><icon-plus class="icon-space white" /></template>
+          <template v-slot:icon><icon-plus class="icon-space white ico" /></template>
         </Button>
       </div>
     </section>
     <section class="metric">
-      <metric-item heading='Total customers' number=2,420 change=40 />
-      <metric-item heading='Members' number=1,210 change=-10 />
-      <metric-item heading='Active now' number=316 change=20 />
+      <metric-item heading='Total customers' number=2,420 :change=40 />
+      <metric-item heading='Members' number=1,210 :change=-10 />
+      <metric-item heading='Active now' number=316 :change=20 />
     </section>
-    <section>no</section>
+    <section>
+      <Table />
+    </section>
   </div>
 </template>
 
