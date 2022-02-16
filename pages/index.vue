@@ -7,10 +7,10 @@
       </div>
       <div class="actions">
         <Button name="Import">
-          <template v-slot:icon><icon-upload-cloud class="ico" /></template>
+          <template #icon><icon-upload-cloud class="ico" /></template>
         </Button>
-        <Button css="primary" name="Add">
-          <template v-slot:icon><icon-plus class="white ico" /></template>
+        <Button name="Add" css="primary">
+          <template #icon><icon-plus class="white ico" /></template>
         </Button>
       </div>
     </section>
@@ -28,6 +28,7 @@
       <Filters />
       <Table />
       <Pagination />
+      <Checkbox />
     </section>
   </div>
 </template>
@@ -100,6 +101,7 @@ export default {
 .dashboard{
   padding:72px 0;
   section{
+    @include pad_lr;
     &:not(:last-child){margin-bottom:32px;}
   }
   >.header{
@@ -118,8 +120,9 @@ export default {
     }
   }
   >.metric{
-    display:grid;
-    grid-template: 1fr / repeat(3,1fr);
+    display:flex;
+    flex-wrap:wrap;
+    // grid-template: 1fr / repeat(3,1fr);
     gap:24px;
     > div{
       max-width:390px;

@@ -59,14 +59,12 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/sass/resources";
 nav {
-  display: flex;
   width: 100%;
-  flex-direction: column;
   @include unselectable;
 
   .primary-nav {
     @include pad_lr;
-    height: 72px;
+    min-height: 72px;
     display: flex;
     align-items: center;
     border-bottom: 1px solid $outlines;
@@ -75,7 +73,7 @@ nav {
     > div {
       display: flex;
       align-items: center;
-      height:40px;
+      min-height:40px;
       > *:not(:last-child){
         margin-right:16px;
       }
@@ -101,7 +99,8 @@ nav {
   }
   .secondary-nav {
     @include pad_lr;
-    height: 64px;
+    min-height: 64px;
+    width:100%;
     display: flex;
     align-items: center;
     border-bottom: 1px solid $outlines;

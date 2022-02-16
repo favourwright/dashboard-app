@@ -35,6 +35,10 @@ button{
   background:unset;
   transition:.3s;
   border:none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   @include box-shadow;
   @include unselectable;
   &:hover{background: $grey_light_1;}
