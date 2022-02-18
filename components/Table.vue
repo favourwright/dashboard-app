@@ -28,9 +28,17 @@
             </td>
             <td><Progress :progress="each.progress" /></td>
             <td><Badge :churned="each.status=='Churned'?true:false">{{each.status}}</Badge></td>
-            <td>heyheyheyheyheyheyheyheyhey</td>
-            <td>heyheyheyheyheyheyheyheyhey</td>
-            <td>del</td>
+            <td><AvatarGroup :users="each.users" /></td>
+            <td>
+              <div class="about">
+                <h2>{{each.about[0]}}</h2>
+                <span>{{each.about[1]}}</span>
+              </div>
+            </td>
+            <td>
+              <div><icon-trash class="ico" /></div>
+              <div><icon-edit class="ico" /></div>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -47,7 +55,12 @@
 </template>
 
 <script>
+import IconTrash from "~icons/feather/trash-2";
+import IconEdit from "~icons/feather/edit-2";
 export default {
+  components:{
+    IconTrash,IconEdit
+  },
   data(){
     return {
       table_data:[
@@ -56,7 +69,14 @@ export default {
           name:'Catalog',web:'catalogapp.io',
           progress:80,
           status:'Customer',
-          users:[],
+          users:[
+            "avatar.png",
+            "download-4.png",
+            "download-3.png",
+            "download-12.png",
+            "download-2.png",
+            "5",
+          ],
           about:['Content curating app','Brings all your news into one place'],
         },
         {
@@ -64,36 +84,90 @@ export default {
           name:'Circooles',web:'getcirooles.com',
           progress:70,
           status:'Churned',
+          about:['Design software','Super lightweight design app'],
+          users:[
+            "download-12.png",
+            "download-9.png",
+            "download-5.png",
+            "download-11.png",
+            "download-13.png",
+            "8",
+          ],
         },
         {
           avatar:'cmdr.png',
           name:'Command+R',web:'cmdr.ai',
           progress:40,
           status:'Customer',
+          about:['Data prediction','AI and machine learning data'],
+          users:[
+            "download-13.png",
+            "download-8.png",
+            "download-6.png",
+            "download-11.png",
+            "download-7.png",
+            "2",
+          ],
         },
         {
           avatar:'hourglass.png',
           name:'Hourglass',web:'hourglass.app',
           progress:80,
           status:'Customer',
+          about:['Productivity app','Time management and productivity'],
+          users:[
+            "download-2.png",
+            "download-4.png",
+            "download-10.png",
+            "download-9.png",
+            "download-8.png",
+            "",
+          ],
         },
         {
           avatar:'layers.png',
           name:'Layers',web:'getlayers.io',
           progress:30,
           status:'Churned',
+          about:['Web app integrations','Connect web apps seamlessly'],
+          users:[
+            "download-3.png",
+            "download-10.png",
+            "download-8.png",
+            "download-11.png",
+            "download-13.png",
+            "1",
+          ],
         },
         {
           avatar:'quotient.png',
           name:'Quotient',web:'quotient.co',
           progress:20,
           status:'Customer',
+          about:['Sales CRM','Web-based sales doc management'],
+          users:[
+            "download-2.png",
+            "download-3.png",
+            "download-8.png",
+            "download-10.png",
+            "download-6.png",
+            "6",
+          ],
         },
         {
           avatar:'sisyphus.png',
           name:'Sisyphus',web:'sisyphus.com',
           progress:40,
           status:'Customer',
+          about:['Automation and workflow','Time tracking, invoicing and expenses'],
+          users:[
+            "download-9.png",
+            "download-6.png",
+            "download-5.png",
+            "download-8.png",
+            "download-12.png",
+            "4",
+          ],
         },
       ]
     }
@@ -156,7 +230,8 @@ export default {
         &:first-child{
           position: sticky;
           z-index:1;
-          max-width:60px !important;
+          max-width:60px;
+          z-index:1;
           left: 0;
         }
         &:nth-child(2){ padding-left:0; }
@@ -181,7 +256,8 @@ export default {
       }
       > td:first-child, >td:last-child{
         position: sticky;
-        max-width:60px !important;
+        max-width:60px;
+        z-index:1;
         background:inherit;
       }
       > td:first-child{
@@ -189,12 +265,21 @@ export default {
       }
       > td:last-child {
         right: 0;
+        max-width:100px;
+        @include flex(center,center);
+        > *{
+          @include flex;
+          min-height:40px;
+          min-width:40px;
+        }
       }
       // &:hover {
       //   background-color: #F9FAFB;
       // }
       .company{
         margin-left:12px;
+      }
+      .company,.about{
         h2,span{
           font-size:14px;
           font-weight:500;
