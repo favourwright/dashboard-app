@@ -28,7 +28,6 @@
       <Filters />
       <Table />
       <Pagination />
-      <Checkbox />
     </section>
   </div>
 </template>
@@ -120,13 +119,10 @@ export default {
     }
   }
   >.metric{
-    display:flex;
-    flex-wrap:wrap;
-    // grid-template: 1fr / repeat(3,1fr);
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px,1fr));
+    grid-template-rows: auto;
     gap:24px;
-    > div{
-      max-width:390px;
-    }
   }
 }
 </style>

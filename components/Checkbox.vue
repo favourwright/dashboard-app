@@ -1,9 +1,16 @@
 <template>
-<div class="checkbox">
-  <div class="promoted-checkbox">
-    <input id="tmp" type="checkbox" class="promoted-input-checkbox"/>
-    <label for="tmp">
-      <icon-check class="ico checkbox" />
+<div>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+    <symbol id="checkmark" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-miterlimit="10" fill="none"  d="M22.9 3.7l-15.2 16.6-6.6-7.1">
+      </path>
+    </symbol>
+  </svg>
+
+  <div class="checkbox">
+    <input :id="name" type="checkbox" class="input-checkbox"/>
+    <label :for="name">
+      <svg><use xlink:href="#checkmark" /></svg>
     </label>
   </div>
 </div>
@@ -12,6 +19,7 @@
 <script>
 import IconCheck from "~icons/feather/check";
 export default {
+  props:['name'],
   components:{
     IconCheck,
   }
@@ -19,12 +27,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$brand: #7F56D9;
-$grey-25: #7F56D9;
-$grey-5: #fcfcfc;
-
+@import '../assets/sass/resources';
 /* HTML5 Boilerplate accessible hidden styles */
-.promoted-input-checkbox {
+.input-checkbox {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px; margin: -1px;
@@ -34,7 +39,7 @@ $grey-5: #fcfcfc;
   width: 1px;
 }
 
-.promoted-checkbox {
+.checkbox {
   input:checked + label > svg {
     // Firefox doesn't render svg's that is loading with the use tag if its been set to display: none and then toggled to display: block, so you have to use tricks like this to get it to render again:
     height: 24px;
@@ -42,11 +47,11 @@ $grey-5: #fcfcfc;
   }
 
   label:active::after {
-    background-color: $grey-25;
+    background-color: $primary;
   }
 
   label {
-    color: $brand;
+    color: $primary;
     line-height: 20px;
     cursor: pointer;
     position: relative;
@@ -56,19 +61,19 @@ $grey-5: #fcfcfc;
       width: 20px;
       margin-right: 1rem;
       float: left;
-      border: 1px solid $brand;
+      border: 1px solid $primary;
       border-radius: 6px;
       transition: 0.15s all ease-out;
     }
   }
   svg {
-    stroke: $brand;
+    stroke: $primary;
     stroke-width: 5px;
     height: 0; //Firefox fix
     width: 11px;
     position: absolute;
-    left: -36px;
-    top: 1px;
+    left: -32px;
+    top: -2px;
     stroke-dasharray: 0; //Firefox fix
   }
 }

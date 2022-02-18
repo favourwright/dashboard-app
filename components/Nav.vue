@@ -5,6 +5,7 @@
         <Logo />
         <menu-list
           :items="primary_menu_items"
+          :can_wrap="true"
         />
       </div>
       <div>

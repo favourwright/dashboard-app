@@ -5,7 +5,7 @@
       <table>
         <thead>
           <tr>
-            <th><input type="checkbox"/></th>
+            <th><Checkbox name='disseect' /></th>
             <th>Company</th>
             <th>License use</th>
             <th>Status</th>
@@ -14,75 +14,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr v-for="n in 10" :key="n">
             <td>
-              <input type="checkbox"/>
+              <Checkbox :name='`row${n}`' />
             </td>
-            <td>This is Item number 1-1</td>
-            <td>This is Item number 2-1</td>
-            <td>This is Item number 3-1</td>
-            <td>This is Item number 4-1</td>
-            <td>This is Item number 5-1</td>
-          </tr>
-          <tr>
-            <td>
-              <input type="checkbox"/>
-            </td>
-            <td>This is Item number 1-2</td>
-            <td>This is Item number 2-2</td>
-            <td>This is Item number 3-2</td>
-            <td>This is Item number 4-2</td>
-            <td>This is Item number 5-2</td>
-          </tr>
-          <tr>
-            <td>
-              <input type="checkbox"/>
-            </td>
-            <td>This is Item number 1-3</td>
-            <td>This is Item number 2-3</td>
-            <td>This is Item number 3-3</td>
-            <td>This is Item number 4-3</td>
-            <td>This is Item number 5-3</td>
-          </tr>
-          <tr>
-            <td>
-              <input type="checkbox"/>
-            </td>
-            <td>This is Item number 1-4</td>
-            <td>This is Item number 2-4</td>
-            <td>This is Item number 3-4</td>
-            <td>This is Item number 4-4</td>
-            <td>This is Item number 5-4</td>
-          </tr>
-          <tr>
-            <td>
-              <input type="checkbox"/>
-            </td>
-            <td>This is Item number 1-5</td>
-            <td>This is Item number 2-5</td>
-            <td>This is Item number 3-5</td>
-            <td>This is Item number 4-5</td>
-            <td>This is Item number 5-5</td>
-          </tr>
-          <tr>
-            <td>
-              <input type="checkbox"/>
-            </td>
-            <td>This is Item number 1-6</td>
-            <td>This is Item number 2-6</td>
-            <td>This is Item number 3-6</td>
-            <td>This is Item number 4-6</td>
-            <td>This is Item number 5-6</td>
-          </tr>
-          <tr>
-            <td>
-              <input type="checkbox"/>
-            </td>
-            <td>This is Item number 1-7</td>
-            <td>This is Item number 2-7</td>
-            <td>This is Item number 3-7</td>
-            <td>This is Item number 4-7</td>
-            <td>This is Item number 5-7</td>
+            <td v-for="i in 5" :key="i">This is Item number {{`${i} in ${n}`}}</td>
           </tr>
         </tbody>
       </table>
