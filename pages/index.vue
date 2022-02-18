@@ -120,7 +120,7 @@ export default {
   }
   >.metric{
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(306px,1fr));
     grid-template-rows: auto;
     gap:24px;
   }

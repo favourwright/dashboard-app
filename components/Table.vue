@@ -5,7 +5,7 @@
       <table>
         <thead>
           <tr>
-            <th><Checkbox name='disseect' /></th>
+            <th><Checkbox name='disselect' /></th>
             <th>Company</th>
             <th>License use</th>
             <th>Status</th>

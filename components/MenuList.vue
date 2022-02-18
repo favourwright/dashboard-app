@@ -21,9 +21,9 @@ export default {
 @import '../assets/sass/resources';
 ul {
   display: flex;
+  transition:.3s;
   &.can-wrap{
     flex-wrap:wrap;
-    @include py(10px);
   }
   li {
     font-size: 16px;

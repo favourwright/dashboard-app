@@ -1,11 +1,15 @@
 <template>
 <div>
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+  <!-- <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
     <symbol id="checkmark" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-miterlimit="10" fill="none"  d="M22.9 3.7l-15.2 16.6-6.6-7.1">
       </path>
     </symbol>
-  </svg>
+  </svg> -->
+<svg width="14" height="14" style="display:none;" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path id="checkmark" d="M2.91669 7H11.0834" stroke="#7F56D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
 
   <div class="checkbox">
     <input :id="name" type="checkbox" class="input-checkbox"/>
@@ -62,6 +66,7 @@ export default {
       margin-right: 1rem;
       float: left;
       border: 1px solid $primary;
+      background: $primary_faded;
       border-radius: 6px;
       transition: 0.15s all ease-out;
     }

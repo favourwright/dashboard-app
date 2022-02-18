@@ -13,7 +13,7 @@
             <icon-arrow-down v-else stroke-width=2 class="red ico" />
             <span :class="change>0?'green':'red'" v-text="Math.abs(change)+'%'"></span>
           </div>
-          <div>vs last month</div>
+          <div title="vs last month">vs last month</div>
         </div>
       </main>
       <div class="chart">
@@ -86,6 +86,7 @@ export default {
   padding:24px;
   border:1px solid $outlines;
   border-radius:8px;
+  overflow:hidden;
   box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.06),
               0 1px 3px 0 rgba(16, 24, 40, 0.1);
   section{
@@ -95,6 +96,7 @@ export default {
 
     > main{
       margin-right:10px;
+      max-width:50%;
       h1{
         margin-bottom:16px;
       }
