@@ -217,9 +217,9 @@ export default {
     background-color: #fff;
     width: 100%;
     padding: 14px 24px;
+    border-top: solid 1px $divider;
     .action{
       @include flex;
-      border-top: solid 1px $divider;
       > *{
         margin-right:12px;
       }
