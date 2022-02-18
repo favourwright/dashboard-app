@@ -26,8 +26,8 @@
                 <span v-text="each.web"></span>
               </div>
             </td>
-            <td>heyheyheyheyheyheyheyheyhey</td>
-            <td>heyheyheyheyheyheyheyheyhey</td>
+            <td><Progress :progress="each.progress" /></td>
+            <td><Badge :churned="each.status=='Churned'?true:false">{{each.status}}</Badge></td>
             <td>heyheyheyheyheyheyheyheyhey</td>
             <td>heyheyheyheyheyheyheyheyhey</td>
             <td>del</td>
@@ -55,33 +55,45 @@ export default {
           avatar:'catalog.png',
           name:'Catalog',web:'catalogapp.io',
           progress:80,
-          status:'customer',
+          status:'Customer',
           users:[],
           about:['Content curating app','Brings all your news into one place'],
         },
         {
           avatar:'circooles.png',
           name:'Circooles',web:'getcirooles.com',
+          progress:70,
+          status:'Churned',
         },
         {
           avatar:'cmdr.png',
           name:'Command+R',web:'cmdr.ai',
+          progress:40,
+          status:'Customer',
         },
         {
           avatar:'hourglass.png',
           name:'Hourglass',web:'hourglass.app',
+          progress:80,
+          status:'Customer',
         },
         {
           avatar:'layers.png',
           name:'Layers',web:'getlayers.io',
+          progress:30,
+          status:'Churned',
         },
         {
           avatar:'quotient.png',
           name:'Quotient',web:'quotient.co',
+          progress:20,
+          status:'Customer',
         },
         {
           avatar:'sisyphus.png',
           name:'Sisyphus',web:'sisyphus.com',
+          progress:40,
+          status:'Customer',
         },
       ]
     }
