@@ -1,12 +1,12 @@
 <template>
   <div class="avatar">
-    <img :src="require(`~/assets/image/${img}`)" alt="avatar">
+    <img :src="require(`~/assets/image/${name}`)" alt="avatar">
   </div>
 </template>
 
 <script>
 export default {
-  props:['img'],
+  props:{name:{default:'avatar.png',String}},
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
   <div class="dropdown">
-    <Avatar img="avatar.png" />
+    <Avatar name="avatar.png" />
   </div>
 </template>

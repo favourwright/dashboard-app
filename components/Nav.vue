@@ -61,7 +61,12 @@ export default {
 @import "../assets/sass/resources";
 nav {
   width: 100%;
+  position:fixed;
+  top:0;
+  background:#fff;
+  z-index:10;
   @include unselectable;
+  // @include box-shadow;
 
   .primary-nav {
     @include pad_lr;

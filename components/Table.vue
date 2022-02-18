@@ -5,26 +5,41 @@
       <table>
         <thead>
           <tr>
-            <th><Checkbox name='disselect' /></th>
+            <th><Checkbox name='disselect' :is_check_mark='false' /></th>
             <th>Company</th>
             <th>License use</th>
             <th>Status</th>
             <th>Users</th>
             <th>About</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="n in 10" :key="n">
+          <tr v-for="(each,i) in table_data" :key="i">
             <td>
-              <Checkbox :name='`row${n}`' />
+              <Checkbox :name='`row-${i}`' :is_check_mark='true' />
             </td>
-            <td v-for="i in 5" :key="i">This is Item number {{`${i} in ${n}`}}</td>
+            <td class="flex">
+              <Avatar :name='each.avatar' />
+              <div class="company">
+                <h2 v-text="each.name"></h2>
+                <span v-text="each.web"></span>
+              </div>
+            </td>
+            <td>heyheyheyheyheyheyheyheyhey</td>
+            <td>heyheyheyheyheyheyheyheyhey</td>
+            <td>heyheyheyheyheyheyheyheyhey</td>
+            <td>heyheyheyheyheyheyheyheyhey</td>
+            <td>del</td>
           </tr>
         </tbody>
       </table>
       <div class="pagination">
-        <label>Previous</label>
-        <label>Next</label>
+        <div class="action">
+          <Button name="Previous" />
+          <Button name="Next" />
+        </div>
+        <div class="details">Page 1 of 10</div>
       </div>
     </div>
   </div>
@@ -33,6 +48,44 @@
 
 <script>
 export default {
+  data(){
+    return {
+      table_data:[
+        {
+          avatar:'catalog.png',
+          name:'Catalog',web:'catalogapp.io',
+          progress:80,
+          status:'customer',
+          users:[],
+          about:['Content curating app','Brings all your news into one place'],
+        },
+        {
+          avatar:'circooles.png',
+          name:'Circooles',web:'getcirooles.com',
+        },
+        {
+          avatar:'cmdr.png',
+          name:'Command+R',web:'cmdr.ai',
+        },
+        {
+          avatar:'hourglass.png',
+          name:'Hourglass',web:'hourglass.app',
+        },
+        {
+          avatar:'layers.png',
+          name:'Layers',web:'getlayers.io',
+        },
+        {
+          avatar:'quotient.png',
+          name:'Quotient',web:'quotient.co',
+        },
+        {
+          avatar:'sisyphus.png',
+          name:'Sisyphus',web:'sisyphus.com',
+        },
+      ]
+    }
+  }
 
 }
 </script>
@@ -46,13 +99,6 @@ export default {
               0 2px 4px -2px rgba(16, 24, 40, 0.06);
   overflow:hidden;
 }
-
-$pagination-background-color: #8f8f8f;
-$pagination-label-background-color: $pagination-background-color;
-$pagination-label-active-color: #ffffff;
-$pagination-label-active-background-color: darken($pagination-background-color, 15%);
-$pagination-label-disabled-color: #ffffff;
-$pagination-label-disabled-background-color: lighten($pagination-background-color, 15%);
 
 .card {
   background-color: #ffffff;
@@ -95,6 +141,12 @@ $pagination-label-disabled-background-color: lighten($pagination-background-colo
         border-bottom: solid 1px $divider;
         position: sticky;
         top: 0;
+        &:first-child{
+          position: sticky;
+          z-index:1;
+          max-width:60px !important;
+          left: 0;
+        }
         &:nth-child(2){ padding-left:0; }
       }
       // table content area
@@ -109,24 +161,56 @@ $pagination-label-disabled-background-color: lighten($pagination-background-colo
       &:nth-child(2n) {
         background-color: #fff;
       }
+      &:nth-child(odd) {
+        background-color: $grey_light_1;
+      }
       > td:nth-child(2){
         padding-left:0;
+      }
+      > td:first-child, >td:last-child{
+        position: sticky;
+        max-width:60px !important;
+        background:inherit;
+      }
+      > td:first-child{
+        left: 0;
+      }
+      > td:last-child {
+        right: 0;
       }
       // &:hover {
       //   background-color: #F9FAFB;
       // }
+      .company{
+        margin-left:12px;
+        h2,span{
+          font-size:14px;
+          font-weight:500;
+          color: $xblack;
+        }
+        span{
+          color:$grey;
+        }
+      }
     }
   }
+  .flex{
+    display:flex;
+  }
   .pagination {
-    background-color: #fff;
-    width: 100%;
-    display: flex;
+    @include flex(space-between);
     position: sticky;
     bottom: 0;
     left: 0;
-    & > label {
-      padding: 10px;
-      cursor: pointer;
+    background-color: #fff;
+    width: 100%;
+    padding: 14px 24px;
+    .action{
+      @include flex;
+      border-top: solid 1px $divider;
+      > *{
+        margin-right:12px;
+      }
     }
   }
 }

@@ -1,20 +1,19 @@
 <template>
-<div>
-  <!-- <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+<div :class="{'minus':!is_check_mark}">
+  <svg v-if="is_check_mark" xmlns="http://www.w3.org/2000/svg" style="display: none">
     <symbol id="checkmark" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-miterlimit="10" fill="none"  d="M22.9 3.7l-15.2 16.6-6.6-7.1">
       </path>
     </symbol>
-  </svg> -->
-<svg width="14" height="14" style="display:none;" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path id="checkmark" d="M2.91669 7H11.0834" stroke="#7F56D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
+  </svg>
+  <svg v-else width="14" height="14" style="display:none;" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path id="minus" d="M2.91669 7H11.0834" stroke="#7F56D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
 
   <div class="checkbox">
     <input :id="name" type="checkbox" class="input-checkbox"/>
     <label :for="name">
-      <svg><use xlink:href="#checkmark" /></svg>
+      <svg><use :xlink:href="`#${is_check_mark?'checkmark':'minus'}`" /></svg>
     </label>
   </div>
 </div>
@@ -23,7 +22,10 @@
 <script>
 import IconCheck from "~icons/feather/check";
 export default {
-  props:['name'],
+  props:{
+    name:{default:'temp',String},
+    is_check_mark:{default:true,Boolean}
+  },
   components:{
     IconCheck,
   }
@@ -80,6 +82,13 @@ export default {
     left: -32px;
     top: -2px;
     stroke-dasharray: 0; //Firefox fix
+  }
+}
+.minus{
+  svg{
+    width: 12px;
+    left: -34px;
+    top: 4px;
   }
 }
 
