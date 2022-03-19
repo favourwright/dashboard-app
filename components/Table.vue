@@ -185,6 +185,12 @@ export default {
               0 2px 4px -2px rgba(16, 24, 40, 0.06);
   overflow:hidden;
 }
+@mixin mobile{
+  .table{border-radius:0;}
+}
+@include sm{@include mobile;}
+@include md{@include mobile;}
+@include lg{@include mobile;}
 
 .card {
   background-color: #ffffff;

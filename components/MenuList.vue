@@ -1,5 +1,5 @@
 <template>
-  <ul :class="{'can-wrap':can_wrap}">
+  <ul class="menu-list" :class="{'can-wrap':can_wrap}">
     <li
       v-for="(item, i) in items"
       :key="i" v-text="item.name"
@@ -37,5 +37,11 @@ ul {
     &:hover{background: $grey_light_1;}
     &.active{background: $grey_light_1;}
   }
+  @mixin mobile{
+    display:none;
+  }
+  @include sm{@include mobile}
+  @include md{@include mobile}
+  @include lg{@include mobile}
 }
 </style>

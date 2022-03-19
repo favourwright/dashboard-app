@@ -66,7 +66,6 @@ nav {
   background:#fff;
   z-index:10;
   @include unselectable;
-  // @include box-shadow;
 
   .primary-nav {
     @include pad_lr;
@@ -75,6 +74,17 @@ nav {
     align-items: center;
     border-bottom: 1px solid $outlines;
     justify-content: space-between;
+    @mixin mobile{
+      ul{
+        display:none;
+      }
+      div:nth-child(2){
+        display:none;
+      }
+    }
+    @include sm{@include mobile;}
+    @include md{@include mobile;}
+    @include lg{@include mobile;}
 
     > div {
       display: flex;
@@ -111,6 +121,12 @@ nav {
     align-items: center;
     border-bottom: 1px solid $outlines;
     justify-content: space-between;
+    @mixin mobile{
+      display:none;
+    }
+    @include sm{@include mobile}
+    @include md{@include mobile}
+    @include lg{@include mobile}
   }
 }
 </style>

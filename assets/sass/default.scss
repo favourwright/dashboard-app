@@ -11,6 +11,12 @@
   width:100%;
   min-height:100vh;
   padding-top:138px;
+  @mixin mobile{
+    padding-top:72px;
+  }
+  @include sm{@include mobile;}
+  @include md{@include mobile;}
+  @include lg{@include mobile;}
 }
 svg.ico{
   width:20px;

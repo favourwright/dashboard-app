@@ -95,3 +95,36 @@ $divider: #EAECF0;
   padding-top: $val;
   padding-bottom: $val;
 }
+
+// media-query sass maps
+$sm:( min: 0px, max: 640px );
+$md:( min: 641px, max: 768px );
+$lg:( min: 769px, max: 1024px );
+$xl:( min: 1025px, max: 1536px );
+$xxl:( min: 1537px );
+// media query mixin
+@mixin sm {
+  @media (max-width: #{map-get($sm, max)}) {
+      @content;
+  }
+}
+@mixin md {
+  @media (min-width: #{map-get($md, min)}) and (max-width: #{map-get($md, max)}) {
+      @content;
+  }
+}
+@mixin lg {
+  @media (min-width: #{map-get($lg, min)}) and (max-width: #{map-get($lg, max)}) {
+      @content;
+  }
+}
+@mixin xl {
+  @media (min-width: #{map-get($xl, min)}) and (max-width: #{map-get($xl, max)}) {
+      @content;
+  }
+}
+@mixin xxl {
+  @media (min-width: #{map-get($xxl, min)}) {
+      @content;
+  }
+}

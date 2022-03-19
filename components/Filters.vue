@@ -31,12 +31,35 @@ export default {
   flex-direction:row;
   justify-content:space-between;
   margin-bottom:24px;
+  @include pad_lr;
   main{
     display:flex;
     button:not(:last-child){
       margin-right:12px;
     }
   }
+  @mixin mobile{
+    flex-direction:column-reverse;
+    gap:12px;
+    main{
+      button:nth-child(1){
+        display:none;
+      }
+      button:nth-child(2){
+        display:none;
+      }
+      button:nth-child(3){
+        width:100%;
+        justify-content:center;
+      }
+    }
+    .search{
+      width:100%;
+    }
+  }
+  @include sm{@include mobile;}
+  @include md{@include mobile;}
+
 }
 
 </style>

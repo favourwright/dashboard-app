@@ -24,9 +24,11 @@
         :plot=each.plot
       />
     </section>
-    <section>
+    <section class="table-section">
       <Filters />
-      <Table />
+      <div class="wrap">
+        <Table />
+      </div>
     </section>
   </div>
 </template>
@@ -98,7 +100,7 @@ export default {
 @import "../assets/sass/resources";
 .dashboard{
   padding:72px 0;
-  section{
+  section:not(.table-section){
     @include pad_lr;
     &:not(:last-child){margin-bottom:32px;}
   }
@@ -123,5 +125,22 @@ export default {
     grid-template-rows: auto;
     gap:24px;
   }
+  .table-section >.wrap{
+    @include pad_lr;
+  }
+  @mixin mobile{
+    padding:32px 0;
+    >.header{
+      flex-direction:column;
+      gap:24px;
+    }
+    .table-section >.wrap{
+      padding-left:0;
+      padding-right:0;
+    }
+  }
+  @include sm{@include mobile;}
+  @include md{@include mobile;}
+  @include lg{@include mobile;}
 }
 </style>
