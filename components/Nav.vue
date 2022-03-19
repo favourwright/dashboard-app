@@ -8,6 +8,7 @@
           :can_wrap="true"
         />
       </div>
+      <icon-menu class="burger ico-lg" />
       <div>
         <Button name="Upgrade now">
           <template #icon><icon-zap class="ico" /></template>
@@ -32,8 +33,9 @@
 import IconZap from "~icons/feather/zap";
 import IconSettings from "~icons/feather/settings";
 import IconBell from "~icons/feather/bell";
+import IconMenu from "~icons/feather/menu";
 export default {
-  components: { IconZap, IconSettings, IconBell },
+  components: { IconZap, IconSettings, IconBell, IconMenu },
   data(){
     return {
       primary_menu_items:[
@@ -74,12 +76,18 @@ nav {
     align-items: center;
     border-bottom: 1px solid $outlines;
     justify-content: space-between;
+
+    .burger{display:none;}
     @mixin mobile{
       ul{
         display:none;
       }
-      div:nth-child(2){
+      div:nth-of-type(2){
         display:none;
+      }
+      width:100%;
+      .burger{
+        display:block;
       }
     }
     @include sm{@include mobile;}

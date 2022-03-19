@@ -30,6 +30,10 @@ svg.ico{
     width:18px !important;height:18px !important;
     & *{ stroke-width:3px; }
   }
+  &-lg{
+    width:30px;
+    height:30px;
+  }
 }
 h1{
   font-size:30px;
